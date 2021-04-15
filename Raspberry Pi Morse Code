@@ -1,0 +1,52 @@
+sudo idle3
+import RPi.GPIO as GPIO
+import time
+# telling Pi we're using output function + which LED to use
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11,GPIO.OUT)
+
+# defining the three LED outputs that will be used: dot, dash, space
+def space_led(): # LED output for a " " in string
+    GPIO.output(11,False)
+    time.sleep(2)
+
+def dot_led(): # LED output for a dot in string
+    GPIO.output(11, True)
+    time.sleep(1)
+    GPIO.output(11,False)
+    time.sleep(2) # LED off for same time as space_led
+
+def dash_led(): # LED output for a dash in string
+     GPIO.output(11, True)
+     time.sleep(3)
+     GPIO.output(11,False)
+     time.sleep(2) # LED off for same time as space_led
+
+# Full disclosure, I used this morse dictionary, but code is by me:
+# (https://www.geeksforgeeks.org/morse-code-translator-python/)
+
+morse =  {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.",
+"h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---",
+"p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--"
+,"x":"-..-","y":"-.--","z":"--.."}
+
+# defining string we want converted
+message = input("Enter your message here:").lower()
+
+# converting message to morse
+for x in message:
+    if x == " ": # tells the script to pause the LED if there is a " " in string
+        print(" ")
+        space_led()
+
+    elif morse[x]: # converts string to Morse
+        morseMessage = morse[x] # saves Morse string
+        print(x, "=", morseMessage) # prints individual letter translation
+
+        for letter in morseMessage:
+            if letter == "-": # if letter has a dash = dash LED output
+                print(letter) # letter prints with LED output
+                dot_led()
+            elif letter ==".": #if letter has a dot = dot LED output
+                print (letter) # letter prints with LED output
+                dash_led()
