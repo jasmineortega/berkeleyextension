@@ -1,0 +1,18 @@
+## 1. Celsius to Fahrenheit Conversion
+
+Celsius = float(input("Input temp in F:")) #Input temp for calculation
+Fahrenheit = (Celsius * 1.8) + 32
+print(Celsius, "Celsius equals", Fahrenheit, "Celsius")
+
+# 2.  Cm to Inches, 1 inch = 2.54 cm, 1 cm = 1/2.54 inch
+Centimeter = float(input("Input centimeters:")) #Input cm for calculation
+Inch = Centimeter * 0.39455 # decimal equivalent of 1/2.54 since 1 cm = 1/2.54 inch
+print(Centimeter, "centimers equals", Inch, "Inches")
+
+# 3. All about Circles
+Radius = float(input("Enter radius (in inches) here:")) #Input radius for calculation
+Circumference = Radius * 2 * 3.14 # formula = radius * 2 * pi
+Area = (Radius * Radius) * 3.14 # formula = radius squared * pi
+Surface_area = 4 * Area # formula = 4 * Area
+Volume = (Area * Radius) * 4/3 # formula = r^3 * pi * (4/3)
+print("Radius in inches", Radius, "Circumference of Circle in inches", Circumference, "Area in Inches", Area, "Surface Area in Inches", Surface_area, "Volume of Cubic Inches", Volume)
