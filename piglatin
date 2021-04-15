@@ -1,0 +1,47 @@
+def vowel_finder(n):
+    for split_word in split_input:
+        if split_word [1] in 'aeiou':
+            vowel_found = split_word[1:] + split_word[:1] + "ay"
+            print(vowel_found)
+
+        else:
+            print("yea that didn't work")
+
+def vowel_index():
+    for split_word in split_input:
+        if split_word [1] in 'aeiou':
+            vowel_index = split_input.index(split_word[1])
+            print(vowel_index)
+
+# Determines if first letter of input message is vowel or constanant
+pig_input = "English Phrase"
+while pig_input != "exit":
+    pig_input = input("Enter phrase to translate or type exit: ").lower()
+    split_input = pig_input.split(" ")
+
+    if pig_input == "exit":
+        print("bye!")
+        break
+
+# Split input into for loop to process each word
+    for split_word in split_input:
+
+# Vowel starting words = word + yay
+        if split_word [0] in 'aeiou':
+                    vowel_word = split_word+"yay"
+                    print(vowel_word)
+# Otherwise, all constants before 1st vowel are moved to back of word + "ay"
+# I feel like there is a way to use recursion instead of doing this manually??
+        elif split_word [1] in 'aeiou':
+            vowel_found = split_word[1:] + split_word[:1] + "ay"
+            print(vowel_found)
+
+        elif split_word [2] in 'aeiou':
+            vowel_found = split_word[2:] + split_word[:2] + "ay"
+            print(vowel_found)
+
+        elif split_word [3] in 'aeiou':
+            vowel_found = split_word[3:] + split_word[:3] + "ay"
+            print(vowel_found)
+        else:
+            print(pig_input+ "this didnt work either")
